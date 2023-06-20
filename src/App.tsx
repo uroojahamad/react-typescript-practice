@@ -14,8 +14,7 @@ function App() {
     setIsOpen(true);
   }
   
-  const handleModalBoxClose = (e: any) =>{
-    console.log(e.target.id);
+  const handleModalBoxClose = () =>{
     setIsOpen(false);
   }
   return (
