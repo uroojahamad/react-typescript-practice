@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PhoneNumber from "./components/PhoneNumberComponent/PhoneNumber";
 import ModalBox from "./components/ModalBoxComponent/ModalBox";
 import RadioButton from "./components/RadioButtonComponent/RadioButton";
+import UserRoute from "./components/login/route";
 
 function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -18,6 +19,13 @@ function App() {
   const handleModalBoxClose = () => {
     setIsOpen(false);
   };
+
+  const [selectedOption, setSelectedOption] = useState("");
+  
+  const handleOptionChange = (value: string) => {
+    setSelectedOption(value);
+  };
+
   return (
     <div>
       <PhoneNumber value={phoneNumber} onChange={handlePhoneNumberChange} />
@@ -40,20 +48,29 @@ function App() {
         id={"male"} 
         label={"Male"} 
         value={"male"} 
-        name={"gender"} 
+        name={"gender"}
+        checked={selectedOption === 'male'}
+        onChange={handleOptionChange}
       />
       <RadioButton
         id={"female"}
         label={"Female"}
         value={"female"}
         name={"gender"}
+        checked={selectedOption === 'female'}
+        onChange={handleOptionChange}
       />
       <RadioButton
         id={"other"}
         label={"Other"}
         value={"other"}
         name={"gender"}
+        checked={selectedOption === 'other'}
+        onChange={handleOptionChange}
       />
+
+     {/* <UserRoute/> */}
+
     </div>
   );
 }
