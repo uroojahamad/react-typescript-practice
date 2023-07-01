@@ -1,32 +1,30 @@
-import React from 'react'
+import { useRadioButton } from "./RadioButtonProvider";
 
 type RadioButtonProps = {
-    id: string;
-    label: string;
-    value: string;
-    name:string;
-    checked:boolean;
-    onChange: (value: string) => void;
+    children: string;
 };
 
 const RadioButton = (props : RadioButtonProps) => {
-    const {id, value, label, name, checked, onChange} = props;
+    const {children} = props;
+    const {name, selectedOption, handleOptionChange} = useRadioButton();
 
     const handleChange = () => {
-      onChange(value);
+      handleOptionChange(children);
     };
+
+    
 
   return (
     <div>
       <input
         type="radio"
-        id={id}
-        value={value}
+        id={children}
+        value={children}
         name={name}
-        checked={checked}
+        checked={selectedOption === children}
         onChange={handleChange}
       />
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={children}>{children}</label>
     </div>
   )
 }
