@@ -3,6 +3,7 @@ import PhoneNumber from "./components/PhoneNumberComponent/PhoneNumber";
 import ModalBox from "./components/ModalBoxComponent/ModalBox";
 import RadioButton from "./components/RadioButtonComponent/RadioButton";
 import UserRoute from "./components/login/route";
+import RadioButtonProvider from "./components/RadioButtonComponent/RadioButtonProvider";
 
 function App() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -20,11 +21,7 @@ function App() {
     setIsOpen(false);
   };
 
-  const [selectedOption, setSelectedOption] = useState("");
   
-  const handleOptionChange = (value: string) => {
-    setSelectedOption(value);
-  };
 
   return (
     <div>
@@ -44,15 +41,14 @@ function App() {
         />
       )}
 
-      <RadioButton 
-        id={"male"} 
-        label={"Male"} 
-        value={"male"} 
-        name={"gender"}
-        checked={selectedOption === 'male'}
-        onChange={handleOptionChange}
-      />
-      <RadioButton
+      <RadioButtonProvider name={"gender"}>
+        <RadioButton>Male</RadioButton>
+        <RadioButton>Female</RadioButton>
+        <RadioButton>Other</RadioButton>
+      </RadioButtonProvider>
+
+      
+      {/* <RadioButton
         id={"female"}
         label={"Female"}
         value={"female"}
@@ -67,7 +63,9 @@ function App() {
         name={"gender"}
         checked={selectedOption === 'other'}
         onChange={handleOptionChange}
-      />
+      /> */}
+  
+      
 
      {/* <UserRoute/> */}
 
