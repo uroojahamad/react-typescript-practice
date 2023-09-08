@@ -21,8 +21,6 @@ function App() {
     setIsOpen(false);
   };
 
-  
-
   return (
     <div>
       <PhoneNumber value={phoneNumber} onChange={handlePhoneNumberChange} />
@@ -47,7 +45,6 @@ function App() {
         <RadioButton>Other</RadioButton>
       </RadioButtonProvider>
 
-      
       {/* <RadioButton
         id={"female"}
         label={"Female"}
@@ -64,11 +61,8 @@ function App() {
         checked={selectedOption === 'other'}
         onChange={handleOptionChange}
       /> */}
-  
-      
 
-     {/* <UserRoute/> */}
-
+      {/* <UserRoute/> */}
     </div>
   );
 }
